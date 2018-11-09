@@ -15,6 +15,7 @@ export default class Game {
     this.WIDTH = width;
     this.HEIGHT = height;
     this.input = new Input();
+    this.map = [];
     this.entities = [];
 
     // Set up the back buffer
@@ -39,6 +40,10 @@ export default class Game {
   addEntity(entity) {
     this.entities.push(entity);
   }
+
+  addMap(map) {
+    this.map = map;
+  }
   /** @method update
     * Updates the game state
     * @param {integer} elapsedTime - the number of milliseconds per frame
@@ -46,7 +51,7 @@ export default class Game {
   update(elapsedTime) {
 
     // Update game entitites
-    this.entities.forEach(entity => entity.update(elapsedTime, this.input));
+    this.entities.forEach(entity => entity.update(elapsedTime, this.input,this.map));
 
     // Swap input buffers
     this.input.update();
