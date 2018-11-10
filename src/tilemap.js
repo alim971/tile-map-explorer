@@ -25,7 +25,7 @@ export default class Tilemap {
                     this.map[i][j] = 0;
             }
         }
-
+        this.loadTileset();
     }
 
     renderLayer() {
@@ -68,18 +68,13 @@ export default class Tilemap {
         for(var i = 0; i < layers.length; i++)
             this.renderLayer(layers[i]);
     }
-    loadTileset(json) {
-        this.data = json;
-        this.tileset = $("<img />", {src: json.tilesets[0].image})[0];
+    loadTileset() {
+        this.data = require('./maps/untitled.json');
+        this.tileset = $("<img />", {src: this.data.tilesets[0].image})[0];
         this.renderLayer();
     }
     render(deltaT, contex){
-        //console.log("AA");
-        return $.ajax({
-            url: "/maps/" + this.name + ".json",
-            dataType: "text json",
-            async: false
-        }).done($.proxy(this.loadTileset, this));
+        this.renderLayer();
     }
     update(deltaT, input) {
 

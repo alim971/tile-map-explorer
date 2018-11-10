@@ -35,9 +35,9 @@
         {
          "columns":23,
          "firstgid":1,
-         "image":"..\/..\/Downloads\/32x32_map_tile v3.1.png",
-         "imageheight":958,
-         "imagewidth":760,
+         "image":"/maps/32x32_map_tile v3.1.png",
+         "imageheight":928,
+         "imagewidth":736,
          "margin":0,
          "name":"sample",
          "spacing":0,
