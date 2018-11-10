@@ -18,7 +18,7 @@ export default class Player {
       this.mov = 0;
       this.time = 0;
       this.sprite = new Image(32, 32);
-      this.sprite.src = "/sprite/Character.png";
+      this.sprite.src = "./sprite/Character.png";
   }
 
   makeMove() {

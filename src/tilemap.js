@@ -2,7 +2,6 @@
  * A class representing the player.
  */
 
-import $ from 'jquery';
 export default class Tilemap {
     /** @constructor
      * Constructs a new player instance
@@ -63,14 +62,11 @@ export default class Tilemap {
             });
         }
     }
-    renderLayers(layers) {
-        layers = $.isArray(layers) ? layers : this.data.layers;
-        for(var i = 0; i < layers.length; i++)
-            this.renderLayer(layers[i]);
-    }
+
     loadTileset() {
         this.data = require('./maps/untitled.json');
-        this.tileset = $("<img />", {src: this.data.tilesets[0].image})[0];
+        this.tileset = new Image(1024,768);
+        this.tileset.src = "." + this.data.tilesets[0].image;
         this.renderLayer();
     }
     render(deltaT, contex){
